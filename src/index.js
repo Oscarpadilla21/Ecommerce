@@ -3,12 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+//provedor producto
+import ProductoProvedor from './contexto/ProductoContexto';
+//provedor sidebar
+import SidebarProvider from './contexto/SidebarContexto';
+import CarritoProvider from './contexto/CarritoContexto';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+ <SidebarProvider>
+  <CarritoProvider>
+  <ProductoProvedor>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ProductoProvedor>
+  </CarritoProvider>
+ </SidebarProvider> 
 );
 
 // If you want to start measuring performance in your app, pass a function
